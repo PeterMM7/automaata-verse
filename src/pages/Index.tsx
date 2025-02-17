@@ -1,3 +1,4 @@
+
 import { CircuitBoard, Cpu, Workflow, Video, FileCheck, UserCheck } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import { useState } from "react";
@@ -22,40 +23,42 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-4">
-        <div className="max-w-7xl mx-auto text-center">
+      <section className="pt-32 pb-16 px-4 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-light/5 to-transparent"></div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZWQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxIDAgNiAyLjY5IDYgNnMtMi42OSA2LTYgNi02LTIuNjktNi02IDIuNjktNiA2LTZ6IiBzdHJva2U9IiM5Yjg3ZjUiIHN0cm9rZS13aWR0aD0iMiIvPjwvZz48L3N2Zz4=')] opacity-5"></div>
+        <div className="max-w-7xl mx-auto text-center relative">
           <div className="animate-fade-up">
-            <span className="bg-primary-light/10 text-primary-light px-4 py-1 rounded-full text-sm font-medium">
+            <span className="bg-gradient-to-r from-primary-light/20 to-primary-light/10 text-primary-light px-6 py-2 rounded-full text-sm font-medium inline-block shadow-sm">
               Intelligent Automation Solutions
             </span>
           </div>
-          <h1 className="mt-6 text-5xl md:text-6xl font-bold text-primary animate-fade-up" style={{ animationDelay: "0.2s" }}>
+          <h1 className="mt-8 text-5xl md:text-7xl font-bold text-primary animate-fade-up leading-tight" style={{ animationDelay: "0.2s" }}>
             Transform Your Business
             <br />
-            Through Automation
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-light to-primary">Through Automation</span>
           </h1>
-          <p className="mt-6 text-xl text-gray-600 max-w-2xl mx-auto animate-fade-up" style={{ animationDelay: "0.4s" }}>
+          <p className="mt-8 text-xl text-gray-600 max-w-2xl mx-auto animate-fade-up leading-relaxed" style={{ animationDelay: "0.4s" }}>
             Empower your business with cutting-edge automation solutions that drive efficiency and growth
           </p>
         </div>
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 px-4">
+      <section id="services" className="py-24 px-4 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-primary mb-12">Our Services</h2>
+          <h2 className="text-4xl font-bold text-center text-primary mb-16">Our Services</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <div
                 key={service.title}
-                className="group p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 animate-fade-up"
+                className="group p-8 bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 animate-fade-up border border-gray-100"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <div className="w-12 h-12 bg-primary-light/10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <service.icon className="text-primary-light" size={24} />
+                <div className="w-14 h-14 bg-gradient-to-br from-primary-light to-primary-light/70 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <service.icon className="text-white" size={24} />
                 </div>
-                <h3 className="text-xl font-semibold text-primary mb-2">{service.title}</h3>
-                <p className="text-gray-600">{service.description}</p>
+                <h3 className="text-2xl font-semibold text-primary mb-4">{service.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{service.description}</p>
               </div>
             ))}
           </div>
@@ -63,14 +66,15 @@ const Index = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-primary mb-12">About Our Mission</h2>
+      <section id="about" className="py-24 px-4 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-primary-light/5 to-transparent opacity-50"></div>
+        <div className="max-w-7xl mx-auto relative">
+          <h2 className="text-4xl font-bold text-center text-primary mb-16">About Our Mission</h2>
           <div className="max-w-3xl mx-auto text-center">
-            <p className="text-lg text-gray-600 mb-6 animate-fade-up">
+            <p className="text-xl text-gray-600 mb-8 animate-fade-up leading-relaxed">
               At Automaata, we're passionate about helping businesses harness the power of automation to transform their operations. We understand that many businesses are overwhelmed by manual processes, repetitive tasks, and inefficient workflows that drain resources and limit growth.
             </p>
-            <p className="text-lg text-gray-600 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+            <p className="text-xl text-gray-600 animate-fade-up leading-relaxed" style={{ animationDelay: "0.2s" }}>
               Our mission is to eliminate these operational headaches through intelligent automation solutions. We believe that every business, regardless of size, deserves access to cutting-edge automation tools that can streamline operations, reduce errors, and free up valuable time for strategic growth.
             </p>
           </div>
@@ -78,21 +82,21 @@ const Index = () => {
       </section>
 
       {/* Process Section */}
-      <section id="process" className="py-20 px-4 bg-gray-50">
+      <section id="process" className="py-24 px-4 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-primary mb-12">Our Process</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <h2 className="text-4xl font-bold text-center text-primary mb-16">Our Process</h2>
+          <div className="grid md:grid-cols-3 gap-12">
             {process.map((step, index) => (
               <div
                 key={step.title}
-                className="bg-white p-6 rounded-xl shadow-sm animate-fade-up"
+                className="bg-white p-8 rounded-2xl shadow-lg animate-fade-up border border-gray-100 hover:transform hover:-translate-y-1 transition-all duration-300"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <div className="w-12 h-12 bg-primary-light/10 rounded-lg flex items-center justify-center mb-4">
-                  <step.icon className="text-primary-light" size={24} />
+                <div className="w-14 h-14 bg-gradient-to-br from-primary-light to-primary-light/70 rounded-xl flex items-center justify-center mb-6 shadow-lg">
+                  <step.icon className="text-white" size={24} />
                 </div>
-                <h3 className="text-xl font-semibold text-primary mb-3">{step.title}</h3>
-                <p className="text-gray-600">{step.description}</p>
+                <h3 className="text-2xl font-semibold text-primary mb-4">{step.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{step.description}</p>
               </div>
             ))}
           </div>
@@ -100,13 +104,14 @@ const Index = () => {
       </section>
 
       {/* Contact Form Section */}
-      <section id="contact" className="py-20 px-4 bg-white">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-primary mb-12">Get Started with Automation</h2>
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid md:grid-cols-2 gap-6">
+      <section id="contact" className="py-24 px-4 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-t from-primary-light/5 to-transparent opacity-50"></div>
+        <div className="max-w-3xl mx-auto relative">
+          <h2 className="text-4xl font-bold text-center text-primary mb-16">Get Started with Automation</h2>
+          <form onSubmit={handleSubmit} className="space-y-8 bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
+            <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <label htmlFor="businessName" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="businessName" className="block text-sm font-medium text-gray-700 mb-2">
                   Business Name
                 </label>
                 <input
@@ -114,11 +119,11 @@ const Index = () => {
                   id="businessName"
                   name="businessName"
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-light focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-light focus:border-transparent transition-all duration-200"
                 />
               </div>
               <div>
-                <label htmlFor="contactName" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="contactName" className="block text-sm font-medium text-gray-700 mb-2">
                   Contact Person
                 </label>
                 <input
@@ -126,14 +131,14 @@ const Index = () => {
                   id="contactName"
                   name="contactName"
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-light focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-light focus:border-transparent transition-all duration-200"
                 />
               </div>
             </div>
             
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                   Email Address
                 </label>
                 <input
@@ -141,24 +146,24 @@ const Index = () => {
                   id="email"
                   name="email"
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-light focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-light focus:border-transparent transition-all duration-200"
                 />
               </div>
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
                   Phone Number
                 </label>
                 <input
                   type="tel"
                   id="phone"
                   name="phone"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-light focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-light focus:border-transparent transition-all duration-200"
                 />
               </div>
             </div>
 
             <div>
-              <label htmlFor="businessType" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="businessType" className="block text-sm font-medium text-gray-700 mb-2">
                 Business Type
               </label>
               <input
@@ -166,12 +171,12 @@ const Index = () => {
                 id="businessType"
                 name="businessType"
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-light focus:border-transparent"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-light focus:border-transparent transition-all duration-200"
               />
             </div>
 
             <div>
-              <label htmlFor="needs" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="needs" className="block text-sm font-medium text-gray-700 mb-2">
                 What would you like to automate?
               </label>
               <textarea
@@ -179,7 +184,7 @@ const Index = () => {
                 name="needs"
                 rows={4}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-light focus:border-transparent"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-light focus:border-transparent transition-all duration-200"
                 placeholder="Please describe the processes or tasks you'd like to automate..."
               ></textarea>
             </div>
@@ -187,14 +192,14 @@ const Index = () => {
             <div className="text-center">
               <button
                 type="submit"
-                className="inline-block bg-primary text-white px-8 py-3 rounded-lg font-medium hover:bg-opacity-90 transition-colors duration-200"
+                className="inline-block bg-gradient-to-r from-primary to-primary-light text-white px-12 py-4 rounded-xl font-medium hover:opacity-90 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
               >
                 Submit Inquiry
               </button>
             </div>
           </form>
           {formSubmitted && (
-            <div className="mt-6 p-4 bg-green-50 text-green-700 rounded-lg text-center">
+            <div className="mt-6 p-6 bg-green-50 text-green-700 rounded-xl text-center animate-fade-up shadow-lg border border-green-100">
               Thank you for your inquiry! We'll get back to you soon.
             </div>
           )}
@@ -202,15 +207,15 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-primary">
-        <div className="max-w-4xl mx-auto text-center text-white">
-          <h2 className="text-3xl font-bold mb-6">Ready to Automate?</h2>
-          <p className="text-lg mb-8 opacity-90">
+      <section className="py-24 px-4 bg-gradient-to-br from-primary to-primary-light/90">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl font-bold mb-8 text-white">Ready to Automate?</h2>
+          <p className="text-xl mb-12 text-white/90">
             Let's discuss how automation can transform your business operations
           </p>
           <a
             href="#contact"
-            className="inline-block bg-white text-primary px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors duration-200"
+            className="inline-block bg-white text-primary px-12 py-4 rounded-xl font-medium hover:bg-gray-50 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
           >
             Get Started
           </a>
