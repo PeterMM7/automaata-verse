@@ -39,7 +39,6 @@ const Index = () => {
     <div className="min-h-screen bg-[#1A1F2C]">
       <Navigation />
       
-      {/* Hero Section with liquid effects */}
       <section id="hero-section" className="pt-32 pb-16 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-primary-light/5 to-transparent"></div>
         <div className="absolute inset-0">
@@ -53,17 +52,37 @@ const Index = () => {
             </span>
           </div>
           <h1 className="mt-8 text-5xl md:text-7xl font-bold text-white animate-fade-up leading-tight" style={{ animationDelay: "0.2s" }}>
-            Transform Your Business
+            <span className="text-white">Auto</span>
+            <span className="gradient-shift bg-clip-text text-transparent">maata</span>
             <br />
             <span className="gradient-shift bg-clip-text text-transparent">Through Automation</span>
           </h1>
+          <div className="relative h-40 mt-12">
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+              <div className="isometric-box w-32 h-32 bg-gradient-to-tr from-primary-light/20 to-primary-light/10 rounded-lg backdrop-blur-sm border border-white/10">
+                <div className="isometric-gear absolute -top-8 -right-8 w-16 h-16 border-4 border-primary-light rounded-full"></div>
+                <div className="isometric-gear absolute -bottom-8 -left-8 w-12 h-12 border-4 border-primary-light rounded-full"></div>
+                {[...Array(5)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="automation-line"
+                    style={{
+                      top: `${20 + i * 15}%`,
+                      animationDelay: `${i * 0.5}s`,
+                      width: '80%',
+                      left: '10%'
+                    }}
+                  ></div>
+                ))}
+              </div>
+            </div>
+          </div>
           <p className="mt-8 text-xl text-gray-300 max-w-2xl mx-auto animate-fade-up leading-relaxed" style={{ animationDelay: "0.4s" }}>
             Empower your business with cutting-edge automation solutions that drive efficiency and growth
           </p>
         </div>
       </section>
 
-      {/* Services Section with liquid motion */}
       <section id="services" className="py-24 px-4 relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="liquid-shape absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-primary-light/5 to-transparent blur-3xl"></div>
@@ -88,7 +107,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* About Section */}
       <section id="about" className="py-24 px-4 bg-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary-light/5 to-transparent opacity-50"></div>
         <div className="max-w-7xl mx-auto relative">
@@ -104,7 +122,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Process Section with flowing animation */}
       <section id="process" className="py-24 px-4 relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="liquid-shape absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-primary-light/5 to-transparent blur-3xl"></div>
@@ -131,13 +148,12 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Contact Form Section */}
       <section id="contact" className="py-24 px-4 relative overflow-hidden">
         <div className="absolute inset-0 gradient-shift opacity-5"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(155,135,245,0.1),transparent_50%)]"></div>
         <div className="max-w-3xl mx-auto relative">
           <h2 className="text-4xl font-bold text-center gradient-shift bg-clip-text text-transparent mb-16">Get Started with Automation</h2>
-          <form onSubmit={handleSubmit} className="space-y-8 glass-card p-8 rounded-2xl neo-brutalism">
+          <form onSubmit={handleSubmit} className="space-y-8 bg-white rounded-2xl shadow-xl p-8">
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <label htmlFor="businessName" className="block text-sm font-medium text-gray-700 mb-2">
@@ -221,21 +237,20 @@ const Index = () => {
             <div className="text-center">
               <button
                 type="submit"
-                className="inline-block glass-card text-primary px-12 py-4 rounded-xl font-medium transition-all duration-500 shadow-lg hover:shadow-xl transform hover:-translate-y-1 animate-fade-up hover:bg-white/90"
+                className="inline-block bg-primary px-12 py-4 rounded-xl font-medium text-white transition-all duration-500 shadow-lg hover:shadow-xl transform hover:-translate-y-1 animate-fade-up hover:bg-primary-light"
               >
                 Submit Inquiry
               </button>
             </div>
           </form>
           {formSubmitted && (
-            <div className="mt-6 p-6 glass-card text-green-700 rounded-xl text-center animate-fade-up">
+            <div className="mt-6 p-6 bg-green-50 text-green-700 rounded-xl text-center animate-fade-up">
               Thank you for your inquiry! We'll get back to you soon.
             </div>
           )}
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="py-24 px-4 gradient-shift relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="liquid-shape absolute inset-0 bg-white/5 blur-3xl"></div>

@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -79,6 +78,36 @@
     }
   }
 
+  @keyframes isometric-float {
+    0% {
+      transform: translateY(0) rotateX(45deg) rotateZ(45deg);
+    }
+    50% {
+      transform: translateY(-20px) rotateX(45deg) rotateZ(45deg);
+    }
+    100% {
+      transform: translateY(0) rotateX(45deg) rotateZ(45deg);
+    }
+  }
+
+  @keyframes gear-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes automation-flow {
+    0% {
+      transform: translateX(-100%) translateY(0);
+    }
+    100% {
+      transform: translateX(100%) translateY(-100%);
+    }
+  }
+
   .liquid-shape {
     animation: liquid-flow 8s ease-in-out infinite;
     transition: all 0.5s ease-in-out;
@@ -130,5 +159,22 @@
   .neo-brutalism:hover {
     transform: translate(-2px, -2px);
     box-shadow: 7px 7px 0px rgba(155, 135, 245, 0.6);
+  }
+
+  .isometric-box {
+    transform: rotateX(45deg) rotateZ(45deg);
+    transform-style: preserve-3d;
+    animation: isometric-float 6s ease-in-out infinite;
+  }
+
+  .isometric-gear {
+    animation: gear-spin 8s linear infinite;
+  }
+
+  .automation-line {
+    position: absolute;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #9b87f5, transparent);
+    animation: automation-flow 3s linear infinite;
   }
 }
