@@ -7,20 +7,11 @@ const Index = () => {
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
-    const createDataStream = () => {
-      const stream = document.createElement('div');
-      stream.className = 'data-stream';
-      stream.style.left = Math.random() * 100 + 'vw';
-      stream.style.animationDuration = (Math.random() * 3 + 2) + 's';
-      document.getElementById('hero-section')?.appendChild(stream);
-      
-      setTimeout(() => {
-        stream.remove();
-      }, 5000);
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
     };
-
-    const interval = setInterval(createDataStream, 200);
-    return () => clearInterval(interval);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -36,77 +27,63 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#1A1F2C]">
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       <Navigation />
       
-      <section id="hero-section" className="pt-32 pb-16 px-4 relative overflow-hidden">
+      {/* Hero Section with enhanced animations */}
+      <section className="pt-32 pb-16 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-primary-light/5 to-transparent"></div>
-        <div className="absolute inset-0">
-          <div className="liquid-shape absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-primary-light/10 to-transparent blur-3xl"></div>
-          <div className="liquid-shape absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-primary-light/10 to-transparent blur-3xl" style={{ animationDelay: "-4s" }}></div>
-        </div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZWQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxIDAgNiAyLjY5IDYgNnMtMi42OSA2LTYgNi02LTIuNjktNi02IDIuNjktNiA2LTZ6IiBzdHJva2U9IiM5Yjg3ZjUiIHN0cm9rZS13aWR0aD0iMiIvPjwvZz48L3N2Zz4=')] opacity-5"></div>
+        <div 
+          className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(155,135,245,0.1),transparent_40%)]"
+          style={{
+            transform: `translateY(${scrollY * 0.2}px)`,
+          }}
+        ></div>
         <div className="max-w-7xl mx-auto text-center relative">
           <div className="animate-float">
-            <span className="bg-white/5 text-primary-light px-6 py-2 rounded-full text-sm font-medium inline-block shadow-sm backdrop-blur-sm animate-pulse-glow">
+            <span className="bg-gradient-to-r from-primary-light/20 to-primary-light/10 text-primary-light px-6 py-2 rounded-full text-sm font-medium inline-block shadow-sm backdrop-blur-sm animate-pulse-glow">
               Intelligent Automation Solutions
             </span>
           </div>
-          <h1 className="mt-8 text-5xl md:text-7xl font-bold text-white animate-fade-up leading-tight" style={{ animationDelay: "0.2s" }}>
-            <span className="text-white">Auto</span>
-            <span className="gradient-shift bg-clip-text text-transparent">maata</span>
+          <h1 className="mt-8 text-5xl md:text-7xl font-bold text-primary animate-fade-up leading-tight" style={{ animationDelay: "0.2s" }}>
+            Transform Your Business
             <br />
             <span className="gradient-shift bg-clip-text text-transparent">Through Automation</span>
           </h1>
-          <div className="relative h-40 mt-12">
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-              <div className="isometric-box w-32 h-32 bg-gradient-to-tr from-primary-light/20 to-primary-light/10 rounded-lg backdrop-blur-sm border border-white/10">
-                <div className="isometric-gear absolute -top-8 -right-8 w-16 h-16 border-4 border-primary-light rounded-full"></div>
-                <div className="isometric-gear absolute -bottom-8 -left-8 w-12 h-12 border-4 border-primary-light rounded-full"></div>
-                {[...Array(5)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="automation-line"
-                    style={{
-                      top: `${20 + i * 15}%`,
-                      animationDelay: `${i * 0.5}s`,
-                      width: '80%',
-                      left: '10%'
-                    }}
-                  ></div>
-                ))}
-              </div>
-            </div>
-          </div>
-          <p className="mt-8 text-xl text-gray-300 max-w-2xl mx-auto animate-fade-up leading-relaxed" style={{ animationDelay: "0.4s" }}>
+          <p className="mt-8 text-xl text-gray-600 max-w-2xl mx-auto animate-fade-up leading-relaxed backdrop-blur-sm" style={{ animationDelay: "0.4s" }}>
             Empower your business with cutting-edge automation solutions that drive efficiency and growth
           </p>
         </div>
       </section>
 
-      <section id="services" className="py-24 px-4 relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="liquid-shape absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-primary-light/5 to-transparent blur-3xl"></div>
-        </div>
-        <div className="max-w-7xl mx-auto relative">
-          <h2 className="text-4xl font-bold text-center text-white mb-16">Our Services</h2>
+      {/* Services Section with enhanced hover effects */}
+      <section id="services" className="py-24 px-4 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(155,135,245,0.05),transparent_40%)]"></div>
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold text-center text-primary mb-16">Our Services</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <div
                 key={service.title}
-                className="group glass-card p-8 rounded-2xl transition-all duration-500 animate-fade-up hover:bg-white/10"
-                style={{ animationDelay: `${index * 0.2}s` }}
+                className="group p-8 glass-card hover-lift rounded-2xl transition-all duration-500 animate-fade-up"
+                style={{ 
+                  animationDelay: `${index * 0.2}s`,
+                  transform: `translateY(${Math.max(0, (scrollY - 500) * 0.1)}px)` 
+                }}
               >
-                <div className="w-14 h-14 bg-gradient-to-br from-primary-light to-primary-light/70 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-500 animate-pulse-glow">
-                  <service.icon className="text-white transform group-hover:rotate-12 transition-transform duration-500" size={24} />
+                <div className="w-14 h-14 bg-gradient-to-br from-primary-light to-primary-light/70 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-500 shadow-lg group-hover:rotate-6 animate-pulse-glow">
+                  <service.icon className="text-white transform group-hover:scale-110 transition-transform duration-500" size={24} />
                 </div>
-                <h3 className="text-2xl font-semibold text-white mb-4 group-hover:text-primary-light transition-colors duration-300">{service.title}</h3>
-                <p className="text-gray-300 leading-relaxed group-hover:text-gray-100 transition-colors duration-300">{service.description}</p>
+                <h3 className="text-2xl font-semibold text-primary mb-4 group-hover:text-primary-light transition-colors duration-300">{service.title}</h3>
+                <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">{service.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* About Section */}
       <section id="about" className="py-24 px-4 bg-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary-light/5 to-transparent opacity-50"></div>
         <div className="max-w-7xl mx-auto relative">
@@ -122,38 +99,39 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="process" className="py-24 px-4 relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="liquid-shape absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-primary-light/5 to-transparent blur-3xl"></div>
-        </div>
-        <div className="max-w-7xl mx-auto relative">
-          <h2 className="text-4xl font-bold text-center gradient-shift bg-clip-text text-transparent mb-16">Our Process</h2>
+      {/* Process Section with floating cards */}
+      <section id="process" className="py-24 px-4 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(155,135,245,0.05),transparent_40%)]"></div>
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold text-center text-primary mb-16 gradient-shift bg-clip-text text-transparent">Our Process</h2>
           <div className="grid md:grid-cols-3 gap-12">
             {process.map((step, index) => (
               <div
                 key={step.title}
-                className="group glass-card p-8 rounded-2xl neo-brutalism"
+                className="group glass-card p-8 rounded-2xl shadow-lg animate-float border border-gray-100/20 hover:border-primary-light/20 transition-all duration-500"
                 style={{ 
-                  animationDelay: `${index * 0.2}s`
+                  animationDelay: `${index * 0.2}s`,
+                  animationDuration: `${6 + index}s`
                 }}
               >
-                <div className="w-14 h-14 bg-gradient-to-br from-primary-light to-primary-light/70 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-500">
+                <div className="w-14 h-14 bg-gradient-to-br from-primary-light to-primary-light/70 rounded-xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-all duration-500 animate-pulse-glow">
                   <step.icon className="text-white transform group-hover:rotate-12 transition-transform duration-500" size={24} />
                 </div>
-                <h3 className="text-2xl font-semibold text-white mb-4 group-hover:text-primary-light transition-colors duration-300">{step.title}</h3>
-                <p className="text-gray-300 leading-relaxed group-hover:text-gray-100 transition-colors duration-300">{step.description}</p>
+                <h3 className="text-2xl font-semibold text-primary mb-4 group-hover:text-primary-light transition-colors duration-300">{step.title}</h3>
+                <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">{step.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="contact" className="py-24 px-4 relative overflow-hidden">
+      {/* Contact Form Section with enhanced glass effect */}
+      <section id="contact" className="py-24 px-4 bg-white relative overflow-hidden">
         <div className="absolute inset-0 gradient-shift opacity-5"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(155,135,245,0.1),transparent_50%)]"></div>
         <div className="max-w-3xl mx-auto relative">
           <h2 className="text-4xl font-bold text-center gradient-shift bg-clip-text text-transparent mb-16">Get Started with Automation</h2>
-          <form onSubmit={handleSubmit} className="space-y-8 bg-white rounded-2xl shadow-xl p-8">
+          <form onSubmit={handleSubmit} className="space-y-8 glass-card p-8 rounded-2xl shadow-xl animate-float">
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <label htmlFor="businessName" className="block text-sm font-medium text-gray-700 mb-2">
@@ -237,24 +215,23 @@ const Index = () => {
             <div className="text-center">
               <button
                 type="submit"
-                className="inline-block bg-primary px-12 py-4 rounded-xl font-medium text-white transition-all duration-500 shadow-lg hover:shadow-xl transform hover:-translate-y-1 animate-fade-up hover:bg-primary-light"
+                className="inline-block glass-card text-primary px-12 py-4 rounded-xl font-medium transition-all duration-500 shadow-lg hover:shadow-xl transform hover:-translate-y-1 animate-fade-up hover:bg-white/90"
               >
                 Submit Inquiry
               </button>
             </div>
           </form>
           {formSubmitted && (
-            <div className="mt-6 p-6 bg-green-50 text-green-700 rounded-xl text-center animate-fade-up">
+            <div className="mt-6 p-6 glass-card text-green-700 rounded-xl text-center animate-fade-up">
               Thank you for your inquiry! We'll get back to you soon.
             </div>
           )}
         </div>
       </section>
 
+      {/* CTA Section with dynamic gradient */}
       <section className="py-24 px-4 gradient-shift relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="liquid-shape absolute inset-0 bg-white/5 blur-3xl"></div>
-        </div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(255,255,255,0.1),transparent_50%)]"></div>
         <div className="max-w-4xl mx-auto text-center relative">
           <h2 className="text-4xl font-bold mb-8 text-white animate-float">Ready to Automate?</h2>
           <p className="text-xl mb-12 text-white/90 animate-fade-up" style={{ animationDelay: "0.2s" }}>
@@ -262,7 +239,7 @@ const Index = () => {
           </p>
           <a
             href="#contact"
-            className="inline-block glass-card text-white px-12 py-4 rounded-xl font-medium neo-brutalism"
+            className="inline-block glass-card text-primary px-12 py-4 rounded-xl font-medium transition-all duration-500 shadow-lg hover:shadow-xl transform hover:-translate-y-1 animate-fade-up hover:bg-white/90"
             style={{ animationDelay: "0.4s" }}
           >
             Get Started

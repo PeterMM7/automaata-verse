@@ -1,28 +1,30 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 230 25% 12%;
-    --foreground: 210 40% 98%;
-    --card: 230 25% 15%;
-    --card-foreground: 210 40% 98%;
-    --popover: 230 25% 12%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 25% 20%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 25% 20%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 25% 20%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 217.2 25% 20%;
-    --input: 217.2 25% 20%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
   }
 
   html {
@@ -52,75 +54,6 @@
     100% { background-position: 0% 50%; }
   }
 
-  @keyframes liquid-flow {
-    0% {
-      border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
-    }
-    50% {
-      border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
-    }
-    100% {
-      border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
-    }
-  }
-
-  @keyframes data-stream {
-    0% {
-      transform: translateY(0%);
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(1000%);
-      opacity: 0;
-    }
-  }
-
-  @keyframes isometric-float {
-    0% {
-      transform: translateY(0) rotateX(45deg) rotateZ(45deg);
-    }
-    50% {
-      transform: translateY(-20px) rotateX(45deg) rotateZ(45deg);
-    }
-    100% {
-      transform: translateY(0) rotateX(45deg) rotateZ(45deg);
-    }
-  }
-
-  @keyframes gear-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-  @keyframes automation-flow {
-    0% {
-      transform: translateX(-100%) translateY(0);
-    }
-    100% {
-      transform: translateX(100%) translateY(-100%);
-    }
-  }
-
-  .liquid-shape {
-    animation: liquid-flow 8s ease-in-out infinite;
-    transition: all 0.5s ease-in-out;
-  }
-
-  .data-stream {
-    position: absolute;
-    width: 1px;
-    height: 100px;
-    background: linear-gradient(180deg, transparent, #9b87f5, transparent);
-    animation: data-stream 5s linear infinite;
-  }
-
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
@@ -136,10 +69,9 @@
   }
 
   .glass-card {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   .hover-lift {
@@ -148,33 +80,6 @@
 
   .hover-lift:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-  }
-
-  .neo-brutalism {
-    box-shadow: 5px 5px 0px rgba(155, 135, 245, 0.5);
-    transition: all 0.2s ease;
-  }
-
-  .neo-brutalism:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 7px 7px 0px rgba(155, 135, 245, 0.6);
-  }
-
-  .isometric-box {
-    transform: rotateX(45deg) rotateZ(45deg);
-    transform-style: preserve-3d;
-    animation: isometric-float 6s ease-in-out infinite;
-  }
-
-  .isometric-gear {
-    animation: gear-spin 8s linear infinite;
-  }
-
-  .automation-line {
-    position: absolute;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #9b87f5, transparent);
-    animation: automation-flow 3s linear infinite;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   }
 }
