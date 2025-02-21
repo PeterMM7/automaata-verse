@@ -4,11 +4,10 @@ on:
     branches:
       - main
 
-# Grant GITHUB_TOKEN the permissions required to make a Pages deployment
 permissions:
-  contents: write    # Required for actions/checkout
-  pages: write      # Required to deploy to Pages
-  id-token: write   # Required for authentication
+  contents: write
+  pages: write
+  id-token: write
 
 jobs:
   deploy:
@@ -28,8 +27,8 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Debug Build Output
-        run: ls -la dist/
+      - name: Copy headers file
+        run: cp _headers dist/
 
       - name: Create CNAME file
         run: echo "www.automaata.co.uk" > dist/CNAME
