@@ -3,22 +3,41 @@ on:
   push:
     branches:
       - main
+
+# Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+permissions:
+  contents: write    # Required for actions/checkout
+  pages: write      # Required to deploy to Pages
+  id-token: write   # Required for authentication
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 21
+
       - name: Install dependencies
         run: npm install
+
       - name: Build project
         run: npm run build
+
+      - name: Debug Build Output
+        run: ls -la dist/
+
+      - name: Create CNAME file
+        run: echo "www.automaata.co.uk" > dist/CNAME
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+          cname: www.automaata.co.uk
+          force_orphan: true
